@@ -20,16 +20,18 @@ global unzip = "$orig/unzip"
 
 do SecuTrial_zip_data_import
 ```
-The global macros orig, tmp and unzip are all required so that the program know where to save files (the folders also have to exist). 
+The global macros ```orig```, ```tmp``` and ```unzip``` are all required so that the program know where to save files (the folders also have to exist). 
 
 When running the file, a window will open and ask you to identify the zip file you downloaded from SecuTrial. Simply navigate to it, select it and press OK.
 Once the program has run, the prepared datafiles are saved in the orig location.
 
-Specific forms can be requested via a ```forms``` global. For example, if a database contains formed named form1, form2 and form3, the following would prepare all three forms
+#### Preparing specific forms
+
+Specific forms can be requested via a ```forms``` global. For example, if a database contains formed named ```form1```, ```form2 ``` and ```form3```, the following would prepare all three forms
 ```
 do SecuTrial_zip_data_import
 ```
-while the next would only prepare form1
+while the next would only prepare ```form1```
 ```
 global forms = "form1" 
 
@@ -37,9 +39,9 @@ do SecuTrial_zip_data_import
 ```
 
 #### Additional usage details
-If you have exported the audit log data as well as the main data, by setting another global called audit to 1, the audit log files will also be prepared.
+If you have exported the audit log data as well as the main data, by setting another global called ```audit``` to 1, the audit log files will also be prepared.
 
-Similarly, queries can also be prepared if they have been exported and a global called query is set to 1.
+Similarly, queries can also be prepared if they have been exported and a global called ```query``` is set to 1.
 
 E.g., the following would prepare the query data and the audit log data for all files in the database.
 ```
@@ -52,7 +54,7 @@ do SecuTrial_zip_data_import
 ### Notes
 Dates and datetimes are only identified as such if they are exported as strings. 
 
-The original date/datetime variable is retained as x_orig where x is the variables original name.
+The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name.
 
 
 
