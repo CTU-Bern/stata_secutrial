@@ -26,6 +26,15 @@ When running the file, a window will open and ask you to identify the zip file y
 
 Once the program has run, the prepared datafiles are saved in the ```orig``` folder.
 
+Three additional functions are also available.
+* ```add_aid``` is a helper program to add the alternative ID to files.
+* ```add_center``` is a helper program to add the center ID to files.
+* ```scrubvars``` is a helper program to remove secutrial system variables from files.
+The could be put in ```C:/ado/personal``` or their location could be added to the adopath in stata, e.g.
+```
+adopath + "path/to/files"
+```
+
 ### Preparing specific forms
 
 Specific forms can be requested via a ```forms``` global. For example, if a database contains formed named ```form1```, ```form2 ``` and ```form3```, the following would prepare all three forms
@@ -38,6 +47,7 @@ global forms = "form1"
 
 do SecuTrial_zip_data_import
 ```
+
 
 ### Additional usage details
 If you have exported the audit log data as well as the main data, by setting another global called ```audit``` to 1, the audit log files will also be prepared.
