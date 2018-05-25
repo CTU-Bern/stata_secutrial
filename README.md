@@ -23,7 +23,8 @@ do SecuTrial_zip_data_import
 The global macros ```orig```, ```tmp``` and ```unzip``` are all required so that the program know where to save files (the folders also have to exist). 
 
 When running the file, a window will open and ask you to identify the zip file you downloaded from SecuTrial. Simply navigate to it, select it and press OK.
-Once the program has run, the prepared datafiles are saved in the orig location.
+
+Once the program has run, the prepared datafiles are saved in the ```orig``` folder.
 
 ### Preparing specific forms
 
@@ -52,9 +53,9 @@ do SecuTrial_zip_data_import
 ```
 
 ## Notes
-Dates and datetimes are only identified as such if they are exported as strings. 
+Dates and datetimes are only identified as such if they are exported as strings (but not all strings are interpreted as date(time), the metadata provides additional details to the program). 
 
-The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name.
+The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name. This is to ensure that no data is lost in the conversion from string to date due to an unexpected format.
 
 
 
