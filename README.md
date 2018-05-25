@@ -1,4 +1,4 @@
-# stata_securtrial
+# stata_secutrial
 Stata programs for handling secutrial data
 
 Handles 
@@ -9,7 +9,7 @@ Handles
 
 An example export options file is included as ExportOptions.html. The important thing for the program to work is that the metadata options are enabled and the store reference value option is set to seperate table
 
-### Usage
+## Usage
 
 Assuming that the file is in your working directory (assume C:/data), and that you have folders temp (for temporary files), orig (for original data) and unzip within orig (the zip file will be unzipped here), your do file could contain the following
 ```
@@ -25,7 +25,7 @@ The global macros ```orig```, ```tmp``` and ```unzip``` are all required so that
 When running the file, a window will open and ask you to identify the zip file you downloaded from SecuTrial. Simply navigate to it, select it and press OK.
 Once the program has run, the prepared datafiles are saved in the orig location.
 
-#### Preparing specific forms
+### Preparing specific forms
 
 Specific forms can be requested via a ```forms``` global. For example, if a database contains formed named ```form1```, ```form2 ``` and ```form3```, the following would prepare all three forms
 ```
@@ -38,7 +38,7 @@ global forms = "form1"
 do SecuTrial_zip_data_import
 ```
 
-#### Additional usage details
+### Additional usage details
 If you have exported the audit log data as well as the main data, by setting another global called ```audit``` to 1, the audit log files will also be prepared.
 
 Similarly, queries can also be prepared if they have been exported and a global called ```query``` is set to 1.
@@ -51,7 +51,7 @@ global audit = 1
 do SecuTrial_zip_data_import
 ```
 
-### Notes
+## Notes
 Dates and datetimes are only identified as such if they are exported as strings. 
 
 The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name.
