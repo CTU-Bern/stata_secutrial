@@ -26,11 +26,13 @@ When running the file, a window will open and ask you to identify the zip file y
 
 Once the program has run, the prepared datafiles are saved in the ```orig``` folder.
 
-Three additional functions are also available.
+Three additional functions specifically for SecuTrial are also available.
 * ```add_aid``` is a helper program to add the alternative ID to files.
 * ```add_center``` is a helper program to add the center ID to files.
 * ```scrubvars``` is a helper program to remove secutrial system variables from files.
-The could be put in ```C:/ado/personal``` or their location could be added to the adopath in stata, e.g.
+Two additional functions (```xlabel``` and ```xvarlabel```) are also included. They are for labelling values and variables. Each has it's own helpfile.
+
+These files could be put in ```C:/ado/personal``` or their location could be added to the adopath in stata, e.g.
 ```
 adopath + "path/to/files"
 ```
@@ -67,6 +69,6 @@ Dates and datetimes are only identified as such if they are exported as strings 
 
 The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name. This is to ensure that no data is lost in the conversion from string to date due to an unexpected format.
 
-This code is known to work with SecuTrial version 5.2.0.9. Some previous version do not have the itemtype variable in the items file that is used to determine dates.
+This code is known to work with SecuTrial version 5.2.0.9. Some previous versions do not have the itemtype variable in the items file that is used to determine dates.
 
 
