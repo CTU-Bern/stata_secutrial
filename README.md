@@ -67,6 +67,6 @@ Dates and datetimes are only identified as such if they are exported as strings 
 
 The original date/datetime variable is retained as ```x_orig``` where ```x``` is the variables original name. This is to ensure that no data is lost in the conversion from string to date due to an unexpected format.
 
-
+This code is known to work with SecuTrial version 5.2.0.9. Some previous version do not have the itemtype variable in the items file that is used to determine dates.
 
 
