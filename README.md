@@ -30,6 +30,7 @@ Three additional functions specifically for SecuTrial are also available.
 * ```add_aid``` is a helper program to add the alternative ID to files.
 * ```add_center``` is a helper program to add the center ID to files.
 * ```scrubvars``` is a helper program to remove secutrial system variables from files.
+
 Two additional functions (```xlabel``` and ```xvarlabel```) are also included. They are for labelling values and variables. Each has it's own helpfile.
 
 These files could be put in ```C:/ado/personal``` or their location could be added to the adopath in stata, e.g.
