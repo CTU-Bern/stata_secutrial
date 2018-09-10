@@ -49,7 +49,7 @@ program define secu_varclear
 	qui ds 
 	local varorder = r(varlist)
 	foreach v in `=r(varlist)' {
-		local vx = regexm("`v'", "v[0-9]+")
+		local vx = regexm("`v'", "^v[0-9]+$")
 		if `vx' == 1 {
 			*disp "dropping `v'"
 			drop `v'
