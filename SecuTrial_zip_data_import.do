@@ -62,6 +62,7 @@ noi : di as txt "Collating files"
 * work out file extension (.csv/.xls)
 shell dir "$unzip" /a-d /b > "$tmp/files.txt" // create a list of the files in txt format (by calling the windows shell directly)
 import delimited "$tmp/files.txt", clear
+save "$tmp/filesInFolder", replace
 gen pp = strrpos(v1, ".")
 gen ss = substr(v1, pp, .)
 gen n = 1
@@ -354,8 +355,16 @@ secu_varclear
 note : Export date: $expdate
 bysort formtablename : gen nth = _n
 keep if nth == 1
+
+* remove forms that do not occur in the unzip folder
+gen filename = formtablename + "_$fileext"
+mmerge filename using "$tmp/filesInFolder", umatch(v1) unmatched(none)
+drop _merge
+
+
 if "$forms" == "" {
 	local forms = "casenodes"
+	
 	forvalues i = 1(1)`=_N' {
 		local forms = "`forms' " + formtablename[`i']
 		if $audit == 1 {
@@ -392,6 +401,8 @@ if "$forms" != "" {
 if $queries == 1 {
 	local forms = "`forms' queries"
 }
+
+
 save "$tmp/forms", replace
 di "`forms'" 
 * regular forms *
@@ -573,3 +584,4 @@ clear
 
 
 cd "$pp"
+
