@@ -49,7 +49,7 @@ program define secu_varclear
 	qui ds 
 	local varorder = r(varlist)
 	foreach v in `=r(varlist)' {
-		local vx = regexm("`v'", "^v[0-9]+$")
+		local vx = regexm("`v'", "v[0-9]+")
 		if `vx' == 1 {
 			*disp "dropping `v'"
 			drop `v'
@@ -268,7 +268,8 @@ local on = `=_N'
 forvalues i = 1/`on' {
 	local ix = itemtype[`i']
 	*di "`ix'"
-	local dx = regexm("`ix'", "DD-MM-YYYY$")
+	*local dx = regexm("`ix'", "DD-MM-YYYY$")
+	local dx = regexm("`ix'", "\(dd\.mm\.yyyy\)")
 	if `dx' == 1 {
 		*di "...added to list"
 		local vx = ffcolname[`i']
@@ -284,7 +285,8 @@ disp "`DMYvars'"
 forvalues i = 1/`on' {
 	local ix = itemtype[`i']
 	*di "`ix'"
-	local dx = regexm("`ix'", " MM-YYYY$")
+	*local dx = regexm("`ix'", " MM-YYYY$")
+	local dx = regexm("`ix'", "\(mm\.yyyy\)")
 	if `dx' == 1 {
 		*di "...added to list"
 		local vx = ffcolname[`i']
@@ -298,10 +300,14 @@ forvalues i = 1/`on' {
 }
 disp "$DMYvars"
 disp "$MYvars"
+
+*local DMYvars = "consent_date pree_date pci_date pci_stage_plan_date pci_dis_date pci_creat_dis_date pci_ckmb_dis_date pci_tropo_dis_date vdate rand_mi_date rand_restenose_date rand_stroke_date rand_stentthrom_date rand_revasc_date randomized_date fup_date fup_ecg_date fup_inr_date fup_tropo_date fup_medi_date ano_start_date ano_stop_date aoa_start_date aoa_stop_date eos_date eos_regimen_date sae_inf_date death_inf_date cva_date cva_inf_date mi_date mi_inf_date st_date st_inf_date bleed_inf_date revasc_date revasc_inf_date sae_last_date mi_pre_date mi_post_date mi_angio_date en_start_date en_scr_date slf_init_date slf_val_from slf_val_to"
+*local MYvars = "yrob prior_mi_ym"
+
 forvalues i = 1/`on' {
 	local ix = itemtype[`i']
 	*di "`ix'"
-	local dx = regexm("`ix'", "DD-MM-YYYY HH:MM$")
+	local dx = regexm("`ix'", "\(dd.mm.yyyy hh:mm\)")
 	if `dx' == 1 {
 		*di "...added to list"
 		local vx = ffcolname[`i']
@@ -584,4 +590,3 @@ clear
 
 
 cd "$pp"
-
